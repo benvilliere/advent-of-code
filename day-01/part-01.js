@@ -1,11 +1,11 @@
-const fs = require('fs');
+const fs = require("fs");
 
-const file = './input.txt';
-const puzzle = fs.readFileSync(file, 'utf-8');
+const file = "./input.txt";
+const puzzle = fs.readFileSync(file, "utf-8");
 
 const solution = puzzle
-  .split('\n')
-  .map((line) => line.split('').filter((char) => !isNaN(char)))
+  .split("\n")
+  .map((line) => line.split("").filter((char) => !isNaN(char)))
   .filter((digits) => digits.length > 0)
   .map((digits) => {
     const first = digits.length > 0 ? digits[0] : 0;
@@ -15,4 +15,4 @@ const solution = puzzle
   })
   .reduce((prev, current) => prev + current);
 
-console.log(solution);
+console.log(solution); // 55017
