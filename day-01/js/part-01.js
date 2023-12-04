@@ -1,6 +1,7 @@
 const fs = require("fs");
+const path = require("path");
 
-const file = "./input.txt";
+const file = path.resolve(__dirname, "../data/input.txt");
 const puzzle = fs.readFileSync(file, "utf-8");
 
 const solution = puzzle
