@@ -22,6 +22,8 @@ const head = {
   8: "8",
   9: "9",
   oneight: "1",
+  twone: "2",
+  twoneight: "2",
 };
 
 const tail = {
@@ -44,19 +46,22 @@ const tail = {
   8: "8",
   9: "9",
   oneight: "8",
+  twone: "1",
+  twoneight: "8",
 };
 
 const solution = puzzle
   .split("\n")
   .map((line) => {
-    const regex = /[0-9]|oneight|one|two|three|four|five|six|seven|eight|nine/g;
+    const regex =
+      /[0-9]|twoneight|oneight|twone|one|two|three|four|five|six|seven|eight|nine/g;
     const digits = line.match(regex);
     const first = digits[0];
     const last = digits[digits.length - 1];
-    const result = head[first] + tail[last];
+    const result = parseInt(head[first] + tail[last]);
     console.log(line, digits, result);
     return result;
   })
-  .reduce((prev, current) => parseInt(prev) + parseInt(current));
+  .reduce((prev, current) => prev + current);
 
-console.log(solution); // 53607
+console.log(solution); // 53599
